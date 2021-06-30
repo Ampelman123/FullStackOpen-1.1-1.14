@@ -1,5 +1,22 @@
 import React, { useState } from 'react'
 
+function indexOfMax(arr) {
+  if (arr.length === 0) {
+      return -1;
+  }
+
+  var max = arr[0];
+  var maxIndex = 0;
+
+  for (var i = 1; i < arr.length; i++) {
+      if (arr[i] > max) {
+          maxIndex = i;
+          max = arr[i];
+      }
+  }
+
+  return maxIndex;
+}
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often',
@@ -37,6 +54,13 @@ const App = () => {
       <div>
         <button onClick={handleVote}>vote</button>
         <button onClick={handleClick}>Next quote</button>
+      </div>
+      <h1>Anecdote with most votes</h1>
+      <div>     
+        {anecdotes[indexOfMax(voted)]}
+      </div>
+      <div>     
+        HAT {Math.max(...voted)} VOTES
       </div>
     </div>
   )
