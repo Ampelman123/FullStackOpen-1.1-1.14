@@ -3,12 +3,21 @@ import React from 'react'
 const Header = ({course})=>(
   <h1>{course}</h1>
 )
-const Parts = ({part, exercises})=>{
+const Content = (props)=>{
+  return(
+  <div>
+  <Part part={props.part1}exercises={props.exercises1}/>
+  <Part part={props.part1}exercises={props.exercises1}/>
+  <Part part={props.part1}exercises={props.exercises1}/>
+  </div>
+  )
+}
+const Part = ({part, exercises})=>(
   <p>{part} {exercises}</p>
-}
-const Total = (props)=>{
+)
+const Total = (props)=>(
   <p>Number of exercises {props.exercises1 + props.exercises2 + props.exercises3}</p>
-}
+)
 
 const App = () => {
   const course = 'Half Stack application development'
@@ -22,10 +31,7 @@ const App = () => {
   return (
     <div>
       <Header course={course}/>
-      
-      <Parts part={part1}exercises={exercises1}/>
-      <Parts part={part2}exercises={exercises2}/>
-      <Parts part={part3}exercises={exercises3}/>
+      <Content part1={part1}exercises1={exercises1}part2={part2}exercises2={exercises2}part3={part3}exercises3={exercises3}/>
       <Total exercises1={exercises1}exercises2={exercises2}exercises3={exercises3}/>
     </div>
   )
