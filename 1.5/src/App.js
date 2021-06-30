@@ -3,7 +3,7 @@ import React from 'react'
 const Header = ({course})=>(
   <h1>{course}</h1>
 )
-const Parts = ({part, exercises})=>{
+const Content = ({part, exercises})=>{
   <p>{part} {exercises}</p>
 }
 const Total = (props)=>{
@@ -22,10 +22,9 @@ const App = () => {
   return (
     <div>
       <Header course={course}/>
-      
-      <Parts part={part1}exercises={exercises1}/>
-      <Parts part={part2}exercises={exercises2}/>
-      <Parts part={part3}exercises={exercises3}/>
+      <Content part={part1}exercises={exercises1}/>
+      <Content part={part2}exercises={exercises2}/>
+      <Content part={part3}exercises={exercises3}/>
       <Total exercises1={exercises1}exercises2={exercises2}exercises3={exercises3}/>
     </div>
   )
